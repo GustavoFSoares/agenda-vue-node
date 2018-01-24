@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/noderest');
+mongoose.connect('mongodb://mongo/noderest');
 mongoose.Promise = global.Promise;
 
 module.exports = mongoose;
