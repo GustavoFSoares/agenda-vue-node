@@ -1,6 +1,6 @@
 const mongoose = require('../database');
 
-const UserSchema = new mongoose.Schema({
+const ContactSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true,
@@ -8,13 +8,18 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         unique: true,
-        required: true,
+        required: false,
         lowercase: true,
     },
-    password: {
+    tel1: {
         type: String,
-        required: true,
-        select: false,
+        unique: true,
+        required: false,
+    },
+    tel2: {
+        type: String,
+        unique: true,
+        required: false,
     },
     createdAt: {
         type: Date,
@@ -22,6 +27,6 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model('User', UserSchema);
+const Contact = mongoose.model('contact', ContactSchema);
 
-module.exports = User;
+module.exports = Contact;

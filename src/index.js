@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 });
 
 require('./controllers/authController')(app);
+require('./routes/contact.router')(app)
 
 app.listen(3000, () => {
     console.log(`Server On`);
