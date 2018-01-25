@@ -10,8 +10,7 @@ app.get('/', (req, res) => {
     res.send('OK'); 
 });
 
-require('./controllers/authController')(app);
-require('./routes/contact.router')(app)
+require('./routes/contact')(app)
 
 app.listen(3000, () => {
     console.log(`Server On`);

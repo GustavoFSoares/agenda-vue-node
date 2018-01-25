@@ -1,12 +1,15 @@
 const express = require('express');
-const Contact = require('../models/contact.model');
+const db = require('../services/mongodb');
 
 const router = express.Router();
 
 router.post('/add', async (req, res) => {
     try {
-
-        return res.status(200).send();
+        let result = db.contact().save(req.body);
+        console.log(result);
+        
+        // return res.status(200).send();
+        res.json(result)
     } catch (err) {
         console.log(err);
 
@@ -31,7 +34,7 @@ router.get('/find/:name', async (req, res) => {
 
         if(contact == undefined){
             return res.status(404).send(`Contato "${name}" encontrado`);
-        }else{            
+        }else{
             return res.status(200).send("contact");
         }
         
