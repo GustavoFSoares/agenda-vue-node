@@ -29,7 +29,7 @@ const db = () => {
                 let db = new Contact(contact)
                 db.save((err, results) => {
                     if (err) {
-                        reject({ status: false, msg: "Erro ao cadastrar contato" })
+                        resolve({ status: false, msg: "Erro ao cadastrar contato", erro: err })
                     }
                     resolve({ status: true, msg: "Contato salvo" })
                 })
