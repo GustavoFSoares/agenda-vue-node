@@ -1,15 +1,24 @@
 <template>
     <div>
-        <listagem/>
+        <h1 name="titulo">{{ titulo }}</h1>
+
+        <list/>
     </div>
 </template>
 
 <script>
-import Listagem from './Listagem.vue'
+import List from './List.vue'
 export default {
-    components: {
-        'listagem': Listagem,
+
+    data() {
+        return {
+            titulo: "Agenda de Contatos",
+        }
     },
+    components: {
+        'list': List,
+    },
+
 }
 </script>
 
