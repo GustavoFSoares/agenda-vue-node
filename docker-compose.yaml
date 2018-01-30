@@ -1,0 +1,26 @@
+version: '3'
+services: 
+    # mongo:
+    #     image: mongo
+    #     container_name: mongo    
+    #     networks: 
+    #         - agenda-cwi-network
+    
+    # node:
+    #     image: node
+    #     container_name: node
+    #     networks:
+    #         - agenda-cwi-network
+    #     ports: 
+    #         - "8081:3000"
+    #     depends_on:
+    #         - "mongo"
+    #     volumes:
+    #       - ./server:/api
+    #     working_dir: /api
+    #     run: npm start
+
+networks: 
+    agenda-cwi-network: 
+        driver: bridge
+
