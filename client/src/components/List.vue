@@ -8,7 +8,7 @@
                     <td>E-mail</td>
                     <td>Tel-1</td>
                     <td>Tel-2</td>
-                    <td>Created</td>
+                    <td>Data Criação</td>
                     <td>Editar</td>
                     <td>Excluir</td>
                 </tr>
@@ -20,7 +20,7 @@
                     <td>{{ contact.tel1 }}</td>
                     <td>{{ contact.tel2 }}</td>
                     <td>{{ contact.createdAt }}</td>
-                    <td> <router-link :to="`/app/${contact._id}`" tag="button"> Editar </router-link> </td>
+                    <td> <router-link :to='`/edit/${contact._id}`' tag="button"> Editar </router-link> </td>
                     <td> <button @click="remove(contact._id, index)"> Excluir </button> </td>
                 </tr>
             </tbody>
@@ -40,14 +40,9 @@ export default {
         }
     },
     mounted() {
-        this.list()
+        getContacts().then(res => { this.contacts = res.contacts })
     },
     methods: {
-        list() {
-            getContacts().then(res => { 
-                this.contacts = res.contacts 
-            })
-        },
         remove(id, index) {
             deleteContact(id).then(res => {
                 this.contacts.splice(index, 1)
