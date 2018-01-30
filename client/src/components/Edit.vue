@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>{{ title }}</h1>
-        
+
         <span>Nome: {{ contact.name }} </span>
         <span>E-mail: {{ contact.email }} </span>
         <span>Tel-1: {{ contact.tel1 }} </span>
@@ -13,6 +13,7 @@
 <script>
 import { getContact } from "../services/contacts"
 export default {
+    
     data(){
         return {
             title: "Editar Contato",
@@ -24,7 +25,8 @@ export default {
     },
     methods: {
 
-    }
+    },
+
 }
 </script>
 

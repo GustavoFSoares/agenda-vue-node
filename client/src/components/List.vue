@@ -58,7 +58,8 @@ export default {
                 return this.contacts
             }
         }
-    }
+    },
+
 }
 </script>
 
