@@ -13,10 +13,11 @@ router.get('/', async (req, res, next) => {
     next()
 });
 
-router.get('/find/:name', async (req, res, next) => {
-    const { name } = req.params;
+router.get('/find/:id', async (req, res, next) => {
+    const { id } = req.params;
+    
     try {
-        res.status(200).json(await db.contact().getContact(name));
+        res.status(200).json(await db.contact().getContact(id));
     } catch (err) {
         console.log(err);
         res.status(400).json(await { error: 'Erro ao buscar contato' });

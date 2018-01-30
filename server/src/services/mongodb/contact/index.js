@@ -11,14 +11,12 @@ const db = () => {
                 })
             })
         },
-        getContact: name => {
+        getContact: id => {
             return new Promise((resolve, reject) => {
-                Contact.find({"email": name}, (err, results) => {
+                
+                Contact.find({"_id": id}, (err, results) => {
                     if(err){
-                        reject({status: false, msg: `Erro ao buscar contato`})
-                    }
-                    if(results == undefined){
-                        resolve({status: false, msg: `Contato "${name} não encontrado"`})
+                        reject({status: false, msg: `Erro ao buscar contato`, erro: err})
                     }
                     resolve({status: true, contact: results })
                 })
@@ -29,7 +27,7 @@ const db = () => {
                 let db = new Contact(contact)
                 db.save((err, results) => {
                     if (err) {
-                        resolve({ status: false, msg: "Erro ao cadastrar contato", erro: err })
+                        reject({ status: false, msg: "Erro ao cadastrar contato", erro: err })
                     }
                     resolve({ status: true, msg: "Contato salvo" })
                 })
