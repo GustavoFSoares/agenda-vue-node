@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 name="titulo">{{ titulo }}</h1>
+        <h1>{{ title }}</h1>
 
         <list/>
     </div>
@@ -12,7 +12,7 @@ export default {
 
     data() {
         return {
-            titulo: "Agenda de Contatos",
+            title: "Agenda de Contatos",
         }
     },
     components: {
