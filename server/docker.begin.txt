@@ -1,5 +1,13 @@
 docker run -it --name node --network agenda-cwi-network -v "/home/gustavo/htdocs/agendaCwi:/api-do-caralho" -p 8081:3000 node bash
 
- docker run -d --name mongo --network agenda-cwi-network -v "/home/gustavo/docker-volume/mongo:/var/www" mongo
+docker run -d --name mongo --network agenda-cwi-network -v "/home/gustavo/docker-volume/mongo:/var/www" mongo
 
- docker network create  agenda-cwi-network
+
+casa
+docker run --name node --network agenda-cwi-network -v "/home/gustavo-soares/dev/agendaCwi/server:/api" -w /api -p 8081:3000 node npm start
+
+docker run -d --name mongo --network agenda-cwi-network mongo
+
+docker run -it --name vue -v "/home/gustavo-soares/dev/agendaCwi/client:/client" -w /client -p 8082:8082 ebiven/vue-cli npm start
+
+docker network create  agenda-cwi-network
