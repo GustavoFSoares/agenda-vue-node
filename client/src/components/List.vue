@@ -2,27 +2,35 @@
     <div>
         <input type="search" class="filter" @input="filter = $event.target.value" placeholder="Nome"/>
         <table width="100%">
-            <tr>
-                <td>Nome</td>
-                <td>E-mail</td>
-                <td>Tel-1</td>
-                <td>Tel-2</td>
-                <td>Created</td>
-            </tr>
-            <tr v-for="contact of searchList">
-                <td>{{ contact.name }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.tel1 }}</td>
-                <td>{{ contact.tel2 }}</td>
-                <td>{{ contact.createdAt }}</td>
-            </tr>
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>E-mail</td>
+                    <td>Tel-1</td>
+                    <td>Tel-2</td>
+                    <td>Created</td>
+                    <td>Editar</td>
+                    <td>Excluir</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(contact, index) in searchList" :key="index">
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.tel1 }}</td>
+                    <td>{{ contact.tel2 }}</td>
+                    <td>{{ contact.createdAt }}</td>
+                    <td> <router-link :to="`/app/${contact._id}`" tag="button"> Editar </router-link> </td>
+                    <td> <button @click="remove(contact._id, index)"> Excluir </button> </td>
+                </tr>
+            </tbody>
 
         </table>
     </div>
 </template>
 
 <script>
-import { getContacts } from "../services/contacts"
+import { getContacts, deleteContact } from "../services/contacts"
 export default {
 
     data() {
@@ -40,6 +48,11 @@ export default {
                 this.contacts = res.contacts 
             })
         },
+        remove(id, index) {
+            deleteContact(id).then(res => {
+                this.contacts.splice(index, 1)
+            })
+        }
     },
      computed: {
         searchList() {
