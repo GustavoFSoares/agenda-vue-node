@@ -14,7 +14,7 @@ const db = () => {
         getContact: id => {
             return new Promise((resolve, reject) => {
                 
-                Contact.find({"_id": id}, (err, results) => {
+                Contact.findOne({"_id": id}, (err, results) => {
                     if(err){
                         reject({status: false, msg: `Erro ao buscar contato`, erro: err})
                     }
