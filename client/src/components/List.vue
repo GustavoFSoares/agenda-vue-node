@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="search" class="filter" @input="filter = $event.target.value" placeholder="Nome"/>
+        <input type="search" class="filter" @input="filter = $event.target.value" placeholder="Nome:"/>
         <table width="100%">
             <thead>
                 <tr>
@@ -9,8 +9,8 @@
                     <td>Tel-1</td>
                     <td>Tel-2</td>
                     <td>Data Criação</td>
-                    <td>Editar</td>
-                    <td>Excluir</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -53,7 +53,7 @@ export default {
         searchList() {
             if(this.filter) {
                 let exp = new RegExp(this.filter.trim(), 'i')
-                return this.contacts.filter(contacts => exp.test(contacts.email))
+                return this.contacts.filter(contacts => exp.test(contacts.name))
             } else {
                 return this.contacts
             }
