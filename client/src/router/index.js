@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home.vue'
+import Add from '@/components/Add.vue'
 import Edit from '@/components/Edit.vue'
 
 Vue.use(Router)
@@ -11,6 +12,10 @@ export default new Router({
     {
       path: `/`,
       component: Home
+    },
+    {
+      path: '/add/',
+      component: Add
     },
     {
       path: '/edit/:id',

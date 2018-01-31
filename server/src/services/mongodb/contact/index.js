@@ -52,6 +52,23 @@ const db = () => {
                     resolve({ status: true, msg: "Contato excluido" })
                 })
             })
+        },
+        insert: (contacts) => {
+            return new Promise((resolve, reject) => {
+                var err;
+                contacts.forEach(contact => {
+                
+                    let db = new Contact(contact)
+                    // db.save()
+                    db.save((erro, results) => {
+                        err = erro
+                    })
+                });
+                if(err) {
+                    reject({ status: false, msg: "Contatos não inseridos" })
+                }
+                resolve({ status: true, msg: "Contatos Inseridos" })
+            })
         }
 
     }

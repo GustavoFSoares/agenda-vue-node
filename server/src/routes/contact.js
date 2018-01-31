@@ -55,4 +55,18 @@ router.post('/delete/:id', async (req, res) => {
     }
 });
 
+router.get('/insert', async (req, res) => {
+    let contacts = [
+            { "name": "Gustavo Soares", "email": "gustavo10.fsoares@gmail.com", "tel1": "51-984700974", "tel2": "51-999207540" },
+            { "name": "Fabricio Soares", "email": "fabricio10.fsoares@gmail.com", "tel1": "51-984621064", "tel2": "" },
+            { "name": "Felipe Juchem", "email": "fj@gmail.com", "tel1": "51-123465", "tel2": "" },
+        ];
+    try {
+        res.status(200).json(await db.contact().insert(contacts));
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(await { error: 'Contatos não cadastrados '})
+    }
+});
+
 module.exports = app => app.use('/contact', router);
