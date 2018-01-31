@@ -37,8 +37,7 @@ export default {
         save(contact){
             let id = this.$route.params.id
             editContact(id, contact).then(res => {
-                console.log(res);
-                
+                this.$router.push({ path: '/', params: { mensagem: "Salvou" } })
             })
             
         }
