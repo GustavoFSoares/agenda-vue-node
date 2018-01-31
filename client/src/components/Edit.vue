@@ -27,7 +27,7 @@ export default {
     data(){
         return {
             title: "Editar Contato",
-            contact: [ ],
+            contact: { },
         }
     },
     mounted () {
@@ -37,7 +37,8 @@ export default {
         save(contact){
             let id = this.$route.params.id
             editContact(id, contact).then(res => {
-                console.log('Edit');
+                console.log(res);
+                
             })
             
         }

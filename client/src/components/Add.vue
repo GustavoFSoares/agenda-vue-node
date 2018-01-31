@@ -15,18 +15,26 @@
             <label for="">Tel-2</label>
             <input type="text" v-model="contact.tel2">
 
-            <button @click="save(contact)">Editar</button>
+            <button @click="save(contact)">Save</button>
         </div>
     </div>
 </template>
 
 <script>
+import { addContact } from "../services/contacts";
 export default {
     
     data() {
         return {
             title: "Cadastrar Contato",
-            contact: [ ]
+            contact: { }
+        }
+    },
+    methods: {
+        save(contact){
+            addContact(contact).then(res => {
+                console.log(res);
+            })
         }
     }
     
