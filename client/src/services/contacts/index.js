@@ -5,7 +5,7 @@ export const getContacts = () => {
 }
 
 export const addContact = (contact) => {
-    return http.post(`/add`).then( res => res.data )
+    return http.post(`/add`, contact).then( res => res.data )
 }
 
 export const getContact = (id) => {
@@ -13,7 +13,7 @@ export const getContact = (id) => {
 }
 
 export const editContact = (id, contact) => {
-    return http.put(`/edit/${id}`).then( res => res.data )
+    return http.put(`/edit/${id}`, contact).then( res => res.data )
 }
 
 export const deleteContact = (id) => {
