@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import List from './List.vue'
+import List from '@/components/shared/List.vue'
 export default {
 
     data() {
