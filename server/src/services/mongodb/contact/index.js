@@ -5,20 +5,20 @@ const db = () => {
             return new Promise((resolve, reject) => {
                 Contact.find((err, results) => {
                     if(err){
-                        reject({status: false, msg:"Erro ao listar contatos"})
+                        reject({ err })
                     }
-                    resolve({status: true, contacts: results})
+                    resolve({ status: true, contacts: results })
                 })
             })
         },
         getContact: id => {
             return new Promise((resolve, reject) => {
                 
-                Contact.findOne({"_id": id}, (err, results) => {
-                    if(err){
-                        reject({status: false, msg: `Erro ao buscar contato`, erro: err})
+                Contact.findOne({ "_id": id }, (err, results) => {
+                    if (err){
+                        reject({ err })
                     }
-                    resolve({status: true, contact: results })
+                    resolve({ status: true, contact: results })
                 })
             })
         },
@@ -27,7 +27,7 @@ const db = () => {
                 let db = new Contact(contact)
                 db.save((err, results) => {
                     if (err) {
-                        reject({ status: false, msg: "Erro ao cadastrar contato", erro: err })
+                        reject({ err })
                     }
                     resolve({ status: true, msg: "Contato salvo" })
                 })
@@ -37,7 +37,7 @@ const db = () => {
             return new Promise((resolve, reject) => {
                 Contact.findByIdAndUpdate(id, contact, (err, results) => {
                     if(err){
-                        reject({ status: false, msg: "Erro ao editar contato" })
+                        reject({ err })
                     }
                     resolve({ status: true, msg: "Contato editado"})
                 })
@@ -47,7 +47,7 @@ const db = () => {
             return new Promise((resolve, reject) => {
                 Contact.findByIdAndRemove(id, (err, results) => {
                     if (err) {
-                        reject({ status: false, msg: "Erro ao excluir contato" })
+                        reject({ err })
                     }
                     resolve({ status: true, msg: "Contato excluido" })
                 })
@@ -64,10 +64,10 @@ const db = () => {
                         err = erro
                     })
                 });
-                if(err) {
-                    reject({ status: false, msg: "Contatos não inseridos" })
+                if (err) {
+                    reject({ err })
                 }
-                resolve({ status: true, msg: "Contatos Inseridos" })
+                resolve({ status: true, msg: "Contato(s) Inseridos" })
             })
         }
 
