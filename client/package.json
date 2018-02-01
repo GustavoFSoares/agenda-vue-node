@@ -1,7 +1,7 @@
 {
-  "name": "agenda-cwi",
+  "name": "agenda",
   "version": "1.0.0",
-  "description": "cliente para projeto de apresentacao na CWI",
+  "description": "cliente para projeto de apresentacao em entrevista",
   "author": "Gustavo Soares <gustavo.soares@f1solucoes.com.br>",
   "private": true,
   "scripts": {

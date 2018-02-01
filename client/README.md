@@ -1,6 +1,6 @@
-# agenda-cwi
+# agenda
 
-> cliente para projeto de apresentacao na CWI
+> cliente para projeto de apresentacao em entrevista
 
 ## Build Setup
 
