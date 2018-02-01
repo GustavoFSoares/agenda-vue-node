@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>{{ title }}</h1>
-
         <div class="form-group">
             <label>Nome</label>
             <input name="" type="text" v-model="contact.name">
@@ -24,20 +23,21 @@
 import { getContact, editContact } from "../services/contacts"
 export default {
     
-    data(){
+    data() {
         return {
             title: "Editar Contato",
             contact: { },
         }
     },
-    mounted () {
-        getContact(this.$route.params.id).then(res => { this.contact = res.contact })
+    mounted() {
+        let id = this.$route.params.id
+        getContact(id).then(res => { this.contact = res.contact })
     },
     methods: {
-        save(contact){
+        save(contact) {
             let id = this.$route.params.id
             editContact(id, contact).then(res => {
-                this.$router.push({ path: '/', params: { mensagem: "Salvou" } })
+                this.$router.push({ path: '/' })
             })
             
         }

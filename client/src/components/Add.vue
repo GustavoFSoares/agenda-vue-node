@@ -33,7 +33,7 @@ export default {
     methods: {
         save(contact){
             addContact(contact).then(res => {
-                this.$router.push({ path: '/', params: { mensagem: "Salvou" } })
+                this.$router.push({ path: '/' })
             })
         }
     }
