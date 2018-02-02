@@ -14,7 +14,7 @@
             <label for="">Tel-2</label>
             <input type="text" v-model="contact.tel2">
 
-            <button @click="save(contact)">Editar</button>
+            <button class="btn btn-outline-success" @click="save(contact)">Editar</button>
         </div>
     </div>
 </template>

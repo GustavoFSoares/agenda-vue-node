@@ -10,7 +10,7 @@
                     <td>Tel-2</td>
                     <td>Data Criação</td>
                     <td></td>
-                    <td></td>
+                    <!-- <td></td> -->
                 </tr>
             </thead>
             <tbody>
@@ -20,8 +20,12 @@
                     <td>{{ contact.tel1 }}</td>
                     <td>{{ contact.tel2 }}</td>
                     <td>{{ contact.createdAt }}</td>
-                    <td> <router-link :to='`/edit/${contact._id}`' tag="button"> Editar </router-link> </td>
-                    <td> <button @click="remove(contact._id, index)"> Excluir </button> </td>
+                    <td> 
+                        <router-link class="btn btn-outline-success" :to='`/edit/${contact._id}`' tag="button"> Editar </router-link> 
+                        <button class="btn btn-outline-danger" @click="remove(contact._id, index)"> Excluir </button> 
+                    </td>
+                    <td>
+                        </td>
                 </tr>
             </tbody>
 
