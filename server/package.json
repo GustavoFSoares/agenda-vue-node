@@ -1,7 +1,7 @@
 {
-  "name": "agenda-cwi",
+  "name": "agend",
   "version": "1.0.0",
-  "description": "Agenda telefonica em demonstracao para admicao na cwi",
+  "description": "Agenda telefonica em demonstracao para admicao em entrevista",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

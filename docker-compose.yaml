@@ -4,13 +4,13 @@ services:
         image: mongo
         container_name: mongo    
         networks: 
-            - agenda-cwi-network
+            - agenda-network
     
     node:
         image: node
         container_name: node
         networks:
-            - agenda-cwi-network
+            - agenda-network
         ports: 
             - "8081:3000"
         depends_on:
@@ -21,6 +21,6 @@ services:
         command: npm start
 
 networks: 
-    agenda-cwi-network: 
+    agenda-network: 
         driver: bridge
 
