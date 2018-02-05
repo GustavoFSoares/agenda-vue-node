@@ -19,3 +19,7 @@ export const editContact = (id, contact) => {
 export const deleteContact = (id) => {
     return http.post(`/delete/${id}`).then(res => res.data)
 }
+
+export const insertDefaultContacts = () => {
+    return http.get(`/insert`).then(res => res.data)
+}

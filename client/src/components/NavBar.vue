@@ -1,40 +1,46 @@
 <template>
-    <nav class="navbar navbar-dark bg-dark">
-        <router-link class="navbar-brand" to="/">Home</router-link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <router-link class="navbar-brand" to="/">Home</router-link>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                <router-link class="nav-item nav-link active" to="/add">Add<span class="sr-only">(current)</span></router-link>
+                <router-link class="nav-item nav-link active" to="/" @click.native="insert()">Insert Defaults</router-link>
+                <!-- <router-link class="nav-item nav-link" to=""></router-link> -->
+                <router-link class="nav-item nav-link disabled" to="#">Disabled</router-link>
+                </div>
+            </div>
+        </nav>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <router-link class="nav-link" to="/">
-                        <span class="sr-only"></span>
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/add">Adicionar</router-link>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-        </div>        
-    </nav>
+        <div class="alert alert-success fade show" v-show="message" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
 </template>
 
 <script>
+import { insertDefaultContacts } from "@/services/contacts";
 export default {
-  
+    data(){
+        return {
+            "message": ""
+        }
+    },
+    methods: {
+        insert(){
+            insertDefaultContacts().then(res => {
+                this.message = "Contatos Adicionados"
+                this.$router.push({ path: '/'})
+                setTimeout(()=>{ this.message = false }, 2000)
+            })
+        }
+    }
 }
 </script>
 
