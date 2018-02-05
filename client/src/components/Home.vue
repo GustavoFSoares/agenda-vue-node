@@ -1,7 +1,5 @@
 <template>
     <div>
-        <h1 v-show="message">{{ message }}</h1>
-
         <h1>{{ title }}</h1>
 
         <list/>

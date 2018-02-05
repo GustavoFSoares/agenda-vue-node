@@ -49,14 +49,20 @@ export default {
             filter: '',
         }
     },
-    mounted() {
-        getContacts().then(res => { this.contacts = res.contacts })
+    created() {
+        this.getContacts()
+    },
+    updated() {
+        this.getContacts()
     },
     methods: {
         remove(id, index) {
             deleteContact(id).then(res => {
                 this.contacts.splice(index, 1)
             })
+        },
+        getContacts(){
+            getContacts().then(res => { this.contacts = res.contacts })
         }
     },
      computed: {

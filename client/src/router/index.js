@@ -8,18 +8,18 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: `/`,
-      component: Home
-    },
-    {
-      path: '/add/',
-      component: Add
-    },
-    {
-      path: '/edit/:id',
-      component: Edit
-    },
+        {
+            path: `/`,
+            component: Home
+        },
+        {
+            path: '/add/',
+            component: Add
+        },
+        {
+            path: '/edit/:id',
+            component: Edit
+        },
   ],
   mode: 'history'
 })
