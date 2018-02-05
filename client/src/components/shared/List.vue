@@ -1,15 +1,20 @@
 <template>
     <div>
-        <input type="search" class="filter" @input="filter = $event.target.value" placeholder="Nome:"/>
-        <table width="100%">
+
+        <div class="form-group form-row col">
+            <input type="search" class="filter form-control" @input="filter = $event.target.value" placeholder="Nome:"/>
+        </div>
+
+        <div class="form-group col">
+            <table class="table" width="100%">
             <thead>
                 <tr>
-                    <td>Nome</td>
-                    <td>E-mail</td>
-                    <td>Tel-1</td>
-                    <td>Tel-2</td>
-                    <td>Data Criação</td>
-                    <td></td>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Tel-1</th>
+                    <th scope="col">Tel-2</th>
+                    <th scope="col">Data Criação</th>
+                    <th scope="col"></th>
                     <!-- <td></td> -->
                 </tr>
             </thead>
@@ -24,12 +29,13 @@
                         <router-link class="btn btn-outline-success" :to='`/edit/${contact._id}`' tag="button"> Editar </router-link> 
                         <button class="btn btn-outline-danger" @click="remove(contact._id, index)"> Excluir </button> 
                     </td>
-                    <td>
-                        </td>
+                    <!-- <td></td> -->
                 </tr>
             </tbody>
 
         </table>
+        </div>
+        
     </div>
 </template>
 

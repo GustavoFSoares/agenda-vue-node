@@ -1,21 +1,38 @@
 <template>
     <div>
         <h1>{{ title }}</h1>
-        <div class="form-group">
-            <label>Nome</label>
-            <input name="" type="text" v-model="contact.name">
+        <div class="form-group row">
+            <div class="col-5">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nome: </label>
+                    <input class="col-sm-10 form-control" name="" type="text" v-model="contact.name">    
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="">E-mail: </label>
+                    <input class="col-sm-10 form-control" type="text" v-model="contact.email">                
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="">Tel-1: </label>
+                    <input class="col-sm-10 form-control" type="text" v-model="contact.tel1">                
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="">Tel-2: </label>
+                    <input class="col-sm-10 form-control" type="text" v-model="contact.tel2">                
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="">URL: </label>
+                    <input class="col-sm-10 form-control" type="text" v-model.lazy="contact.url">
+                </div>
+            </div>
 
-            <label for="">E-mail</label>
-            <input type="text" v-model="contact.email">
-
-            <label for="">Tel-1</label>
-            <input type="text" v-model="contact.tel1">
-
-            <label for="">Tel-2</label>
-            <input type="text" v-model="contact.tel2">
-
-            <button class="btn btn-outline-success" @click="save(contact)">Editar</button>
+            <div class="col-7">
+                <div class="form-group">
+                    <img v-show="contact.url" class="img-fluid img-thumbnail" :src="contact.url" alt="gatinho" height="720" width="480">
+                </div>
+            </div>
         </div>
+        
+        <button class="btn btn-outline-success" @click="save(contact)">Edit</button>
     </div>
 </template>
 
