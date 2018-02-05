@@ -21,6 +21,10 @@ const contactSchema = new mongoose.Schema({
         required: false,
         default: ""
     },
+    url: {
+        type: String,
+        default: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+    },
     createdAt: {
         type: Date,
         default: Date.now,
