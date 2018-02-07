@@ -12,15 +12,27 @@ services:
         networks:
             - agenda-network
         ports: 
-            - "8081:3000"
+            - 3000:3000
         depends_on:
             - "mongo"
         volumes:
-          - ./server:/api
+            - ./server:/api
         working_dir: /api
-        command: npm start
+        command: bash -c "npm i -g nodemon && npm i && npm start"
 
+    front:
+        image: node
+        container_name: front
+        networks:
+            - agenda-network
+        ports:
+            - 3001:8080
+        depends_on:
+            - node
+        working_dir: /app
+        volumes:
+            - ./client:/app
+        command: bash -c "npm i && npm start"
 networks: 
     agenda-network: 
         driver: bridge
-
