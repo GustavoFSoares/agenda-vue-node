@@ -10,7 +10,7 @@
                 <router-link class="nav-item nav-link active" to="/add">Add<span class="sr-only">(current)</span></router-link>
                 <router-link class="nav-item nav-link active" to="/" @click.native="insert()">Insert Defaults</router-link>
                 <!-- <router-link class="nav-item nav-link" to=""></router-link> -->
-                <router-link class="nav-item nav-link disabled" to="#">Disabled</router-link>
+                <router-link class="nav-item nav-link disabled" to="/cv">Resume</router-link>
                 </div>
             </div>
         </nav>

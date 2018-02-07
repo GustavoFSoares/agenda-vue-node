@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home.vue'
 import Add from '@/components/Add.vue'
 import Edit from '@/components/Edit.vue'
+import Resume from '@/components/Resume.vue'
 
 Vue.use(Router)
 
@@ -19,6 +20,10 @@ export default new Router({
         {
             path: '/edit/:id',
             component: Edit
+        },
+        {
+            path: '/cv',
+            component: Resume
         },
   ],
   mode: 'history'
