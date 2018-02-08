@@ -10,7 +10,8 @@ services:
         image: node
         container_name: node
         networks:
-            - agenda-network
+            agenda-network:
+                ipv4_address: 172.19.0.5
         ports: 
             - 3000:3000
         depends_on:
@@ -24,15 +25,20 @@ services:
         image: node
         container_name: front
         networks:
-            - agenda-network
+            agenda-network:
+                ipv4_address: 172.19.0.6
         ports:
-            - 3001:8080
+            - 8080:8080
         depends_on:
             - node
         working_dir: /app
         volumes:
             - ./client:/app
         command: bash -c "npm i && npm start"
+
 networks: 
     agenda-network: 
         driver: bridge
+        ipam:
+         config:
+           - subnet: 172.19.0.0/16
