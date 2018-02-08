@@ -13,7 +13,13 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'front', // can be overwritten by process.env.HOST
+    /**
+    * @see host
+    * @description Necessário por IP fixo. 
+    * o browser faz requisições para o arquivo http://front:8080/sockjs-node/info.
+    * Então ao usar "front" no host, e não encontra
+    */
+    host: '172.19.0.6', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
