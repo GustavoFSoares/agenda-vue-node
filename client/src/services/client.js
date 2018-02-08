@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const client = axios.create({
-    baseURL: 'http://localhost:8081/contact',
+    baseURL: 'http://localhost:3000/contact',
     withCredentials: false,
     headers: {
         'Accept': 'application/json',
