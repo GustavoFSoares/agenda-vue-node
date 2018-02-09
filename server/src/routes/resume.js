@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('../services/mongodb');
-const default_resume = require('../resume-default')
+const default_resume = require('../defaults/resume-default')
 
 const router = express.Router();
 

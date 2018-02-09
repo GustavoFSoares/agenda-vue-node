@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../services/mongodb');
+const contacts_default = require('../defaults/contacts-default')
 
 const router = express.Router();
 
@@ -54,14 +55,8 @@ router.post('/delete/:id', async (req, res) => {
 });
 
 router.get('/insert', async (req, res) => {
-    let contacts = [
-        { "name": "Gustavo Soares", "email": "gustavo10.fsoares@gmail.com", "tel1": "51-984700974", "tel2": "51-999207540", "url": "https://2.bp.blogspot.com/-OJwDW543uJA/Vp4mHO4mNII/AAAAAAAADwg/fhtHI1Q2p4E/s1600/annoyed-boss-office-corporate-cartoon-people_zyNMHJd__L.jpg" },
-        { "name": "Fabricio Soares", "email": "fabricio10.fsoares@gmail.com", "tel1": "51-984621064", "tel2": "", "url": "https://st.depositphotos.com/1037178/3043/v/950/depositphotos_30431021-stock-illustration-presenter-office-corporate-cartoon-people.jpg" },
-        { "name": "Felipe Juchem", "email": "fj@gmail.com", "tel1": "51-123465", "tel2": "", "url": "https://thumbs.dreamstime.com/t/personaje-de-dibujos-animados-de-la-meditación-70832971.jpg" },
-        ];
-
     try {
-        res.status(200).json(await db.contact().insert(contacts));
+        res.status(200).json(await db.contact().insert(contacts_default.contacts));
     } catch (err) {
         res.status(400).json(await { msg: 'Contato(s) não cadastrados', data_error: err})
     }
