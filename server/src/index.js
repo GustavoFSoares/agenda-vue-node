@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 });
 
 require('./routes/contact')(app)
+require('./routes/resume')(app) // olhar aqui
 
 app.listen(3000, () => {
     console.log(`Server On`);
