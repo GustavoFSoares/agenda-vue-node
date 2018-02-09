@@ -23,6 +23,4 @@ const contacts = [
 
 ];
 
-module.exports = {
-    contacts: contacts
-}
+module.exports = contacts

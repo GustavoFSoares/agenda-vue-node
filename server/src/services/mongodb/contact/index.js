@@ -53,23 +53,6 @@ const db = () => {
                 })
             })
         },
-        insert: contacts => {
-            return new Promise((resolve, reject) => {
-                var err;
-                contacts.forEach(contact => {
-                
-                    let db = new Contact(contact)
-                    db.save((erro, results) => {
-                        err = erro
-                    })
-                });
-                if (err) {
-                    reject({ err })
-                }
-                resolve({ status: true, msg: "Contato(s) Inseridos" })
-            })
-        }
-
     }
 }
 
