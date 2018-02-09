@@ -4,7 +4,7 @@ const db = () => {
         all: () => {
             return new Promise((resolve, reject) => {
                 Contact.find((err, results) => {
-                    if(err){
+                    if(err) {
                         reject({ err })
                     }
                     resolve({ status: true, contacts: results })
@@ -15,7 +15,7 @@ const db = () => {
             return new Promise((resolve, reject) => {
                 
                 Contact.findOne({ "_id": id }, (err, results) => {
-                    if (err){
+                    if (err) {
                         reject({ err })
                     }
                     resolve({ status: true, contact: results })
@@ -43,7 +43,7 @@ const db = () => {
                 })
             })
         },
-        delete: (id) => {
+        delete: id => {
             return new Promise((resolve, reject) => {
                 Contact.findByIdAndRemove(id, (err, results) => {
                     if (err) {
@@ -53,13 +53,12 @@ const db = () => {
                 })
             })
         },
-        insert: (contacts) => {
+        insert: contacts => {
             return new Promise((resolve, reject) => {
                 var err;
                 contacts.forEach(contact => {
                 
                     let db = new Contact(contact)
-                    // db.save()
                     db.save((erro, results) => {
                         err = erro
                     })
