@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 
 import VueResource from 'vue-resource'
-import router from './router'
+import router from './routes'
 
 import '@/assets/css/bootstrap.css'
 import '@/assets/js/bootstrap.js'
