@@ -4,6 +4,7 @@ import Home from '@/components/Home.vue'
 import Add from '@/components/Add.vue'
 import Edit from '@/components/Edit.vue'
 import Resume from '@/components/Resume.vue'
+import Teste from '@/components/Teste.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,10 @@ export default new Router({
         {
             path: '/cv',
             component: Resume
+        },
+        {
+            path: '/test',
+            component: Teste
         },
   ],
   mode: 'history'
